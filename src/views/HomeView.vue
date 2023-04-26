@@ -1,18 +1,31 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
+    <div class="home">
+      <div style="width: 100%">
+        <el-row
+          :gutter="20"
+          style="margin-bottom: 20px; justify-content: space-around"
+        >
+          <el-col :span="6" v-for="item in box" :key="item.title">
+            <!-- 卡片组件 -->
+            <Card :cardData="item"></Card>
+          </el-col>
+        </el-row>
+        <LineCharts :options="echartsObj"></LineCharts>
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import LineCharts from '@/components/LineCharts.vue'
+import { Options, Vue } from "vue-class-component";
 
 @Options({
-  components: {
-    HelloWorld,
-  },
+  components: {},
 })
-export default class HomeView extends Vue {}
+export default class HomeView extends Vue {
+
+}
 </script>
